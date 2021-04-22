@@ -1,6 +1,6 @@
 {
   "name": "logoutidle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Compact but powerful function to invoke a callback function when nothing happens on the viewport.\nIt is general purpose and works with any frontend framework.",
   "keywords": [
