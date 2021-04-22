@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="dist/logoutidle.umd.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             background: url("./public/saw_billy.jpeg") no-repeat center 230px;
@@ -54,6 +56,19 @@
             top: 0;
             left: 0;
         }
+        @media screen and (max-width: 1200px) {
+            #ribbon {
+                display: none;
+            }
+        }
+            @media screen and (max-width: 767px) {
+                .timer-wrapper {
+                    justify-content: center;
+                }
+            .timer:last-child {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -85,6 +100,8 @@
     keyboard. The reset time can only reset after 30 seconds<br /><br /><br />
 References: https://transcripts.fandom.com/wiki/Saw, https://www.madabouthorror.co.uk/official-licensed-saw-billy-puppet-prop.html
 </p>
+<a href="https://github.com/mszkb/logoutIdle"><img loading="lazy" width="32" height="32" src="public/GitHub-Mark-32px.png"  alt="Fork me on GitHub" data-recalc-dims="1"></a>
+
 <script>
   const secondsDifference = (date1, date2) => {
     const dif = date2 - date1;
