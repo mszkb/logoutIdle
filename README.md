@@ -1,7 +1,7 @@
 # Logout on Idle 
 
 <p align="center">
-  <img src="https://mszkb.github.io/logoutIdle/public/logo.png">
+  <img width="100" src="https://mszkb.github.io/logoutIdle/public/logo.png">
 </p>
 
 Frontend only. Backend solution tba
