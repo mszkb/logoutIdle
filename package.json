@@ -1,0 +1,47 @@
+{
+  "name": "logoutidle",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Compact but powerful function to invoke a callback function when nothing happens on the viewport.\nIt is general purpose and works with any frontend framework.",
+  "keywords": [
+    "idle",
+    "idletimer",
+    "callback 10 mins",
+    "callback 10 minutes",
+    "callback 15 mins",
+    "callback 15 minutes",
+    "idle mouse"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mszkb/logoutIdle.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/logoutidle.umd.js",
+  "module": "./dist/logoutidle.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/logoutidle.es.js",
+      "require": "./dist/logoutidle.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite .",
+    "demo": "vite .",
+    "build": "vite build",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "vite": "^2.2.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "babel-jest": "^26.6.3"
+  }
+}
