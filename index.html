@@ -6,19 +6,24 @@
     <script src="dist/logoutidle.umd.js"></script>
     <style>
         body {
-            background: darkslategrey;
+            background: url("../public/saw_billy.jpeg") no-repeat center 230px;
+            background-color: black;
             color: white;
-
+            padding: 20px;
+            max-width: 1024px;
+            margin: 0 auto;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
         h1 {
             font-family: Georgia, serif;
+            margin-top: 0;
         }
 
         .timer-wrapper {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
         }
         .timer {
             padding-top: 20px;
@@ -47,23 +52,33 @@
     </style>
 </head>
 <body>
-<h1>Logout idle - DEMO</h1>
+<h1>Logout idle - Trap</h1>
 <p>
     Hello User... You probably don't know me, but I know you. <br/>
-    I wanna play a game. Here is what happens when you lose: you fail at the PENTEST.<br/>
+    I wanna play a game. Here is what happens when you lose: TBH lol.<br/>
     There is only one key to win the game. It's to use this library in your code.
     Look at your security guidelines. Know that I'm not lying. You better hurry up.<br />
     <br />
-    I give you a hint: If you need more time, then move your pointing device or type something with your
-    keyboard.<br />
+
     <br />
     Live or die user, make your choice.
 </p>
+<br /><br />
+<br /><br />
 <div class="timer-wrapper">
     <div class="timer">Current timer: <div id="current" class="time"></div><div id="left">seconds left</div></div>
     <div class="timer">Time limit: <div id="limit" class="time"></div></div>
 </div>
-
+<br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
+<p style="font-size: 10px; color: grey">Shhh... Dr. User<br />
+    If you need more time, then move your pointing device or type something with your
+    keyboard. The reset time can only reset after 30 seconds<br /><br /><br />
+References: https://transcripts.fandom.com/wiki/Saw, https://www.madabouthorror.co.uk/official-licensed-saw-billy-puppet-prop.html
+</p>
 <script>
   const secondsDifference = (date1, date2) => {
     const dif = date2 - date1;
@@ -92,7 +107,7 @@
       }
     },
     idle: minutesToAdd + 60000,
-    debounceTime: 10000,
+    debounceTime: 30000,
   });
 
   const redraw = setInterval(() => {
