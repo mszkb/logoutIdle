@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="dist/logoutidle.umd.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            padding: 20px;
+            max-width: 1024px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            margin-top: 0;
+        }
+
+        .timer-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        .timer {
+            padding-top: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            height: 300px;
+            width: 300px;
+            position: relative;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .time {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            font-size: 50px;
+        }
+
+        #left {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+        #ribbon {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        @media screen and (max-width: 1200px) {
+            #ribbon {
+                display: none;
+            }
+        }
+            @media screen and (max-width: 767px) {
+                .timer-wrapper {
+                    justify-content: center;
+                }
+            .timer:last-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Logout idle - Demo</h1>
+<p>
+    If you need more time, then move your pointing device or type something with your
+    keyboard. The reset time can only reset after 30 seconds
+</p>
+<a href="https://github.com/mszkb/logoutIdle" id="ribbon"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+<br /><br />
+<br /><br />
+<div class="timer-wrapper">
+    <div class="timer">Current timer: <div id="current" class="time"></div><div id="left">seconds left</div></div>
+    <div class="timer">Time limit: <div id="limit" class="time"></div></div>
+</div>
+<p style="text-align: center; margin-top: 30px;">
+    <a href="https://github.com/mszkb/logoutIdle"><img loading="lazy" width="32" height="32" src="public/GitHub-Mark-32px.png"  alt="Fork me on GitHub" data-recalc-dims="1"></a>
+</p>
+
+<script>
+  const secondsDifference = (date1, date2) => {
+    const dif = date2 - date1;
+    return Math.round(dif / 1000);
+  };
+
+  const minutesToAdd = 1;
+  let limit = new Date(new Date().getTime() + minutesToAdd * 60000);
+  let current = secondsDifference(new Date(), limit);
+  const forceStop = false;
+  const currentDOM = document.querySelector("#current");
+  const limitDOM = document.querySelector("#limit");
+
+  logoutIdle({
+    reset: () => {
+      limit = new Date(new Date().getTime() + minutesToAdd * 60000);
+      current = secondsDifference(new Date(), limit);
+    },
+    inactive: () => {
+      alert("Game over!");
+    },
+    stop: () => {
+      if (forceStop) {
+        clearInterval(redraw);
+        return true;
+      }
+    },
+    idle: minutesToAdd + 60000,
+    debounceTime: 30000,
+  });
+
+  const redraw = setInterval(() => {
+    if (current < 0) {
+      clearInterval(redraw);
+    }
+
+    current--;
+
+    requestAnimationFrame(() => {
+      currentDOM.innerHTML = current > 0 ? current : 0;
+      limitDOM.innerHTML = limit.toLocaleTimeString();
+    });
+  }, 1000);
+</script>
+</body>
+</html>

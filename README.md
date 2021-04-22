@@ -1,9 +1,18 @@
 # Logout on Idle 
 
-Frontend only. Click here for a backend solution.
+<p align="center">
+  <img src="https://mszkb.github.io/logoutIdle/public/logo.png">
+</p>
+
+Frontend only. Backend solution tba
 
 Compact but powerful function to invoke a callback function when nothing happens on the viewport.
 It is general purpose and works with any frontend framework.
+
+[FUN Demo here](https://mszkb.github.io/logoutIdle/)
+
+Normal Demo: https://mszkb.github.io/logoutIdle/normal.html
+
 
 ## Use cases
 
@@ -38,11 +47,10 @@ function myCallback() {
 }
 
 logoutIdle({
-      inactive: () => {
-        console.log("User is inactive, logging out user due to security reasons");      
-      },
+      inactive: myCallback,
       reset: () => {
  	    console.log("User is still here");
+        console.log("Ignore this or maybe update some stuff on your frontend?")
       },
       stop: () => {
         console.log("return true to stop the timers");
